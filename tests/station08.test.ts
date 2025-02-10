@@ -6,7 +6,10 @@ describe('Station08', () => {
     const file = (await open('./git-log.txt')).readLines()
     const iterator = file[Symbol.asyncIterator]()
     const line1 = (await iterator.next()).value
-    const result = /^commit/.test(line1)
+
+    // BOM除去してからテスト
+    const cleanedLine = line1.replace(/^\uFEFF/, '')
+    const result = /^commit/.test(cleanedLine)
 
     expect(result).toBeTruthy()
   })
@@ -14,9 +17,11 @@ describe('Station08', () => {
   it('git-diff.txtに差分が出力されている', async () => {
     const file = (await open('./git-diff.txt')).readLines()
     const iterator = file[Symbol.asyncIterator]()
-    // TODO: (要検討)
-    //  現状先頭行しか見ていないが、どこまでチェックするか要検討
-    const result = /^diff --git/.test((await iterator.next()).value)
+    const line1 = (await iterator.next()).value
+
+    // こっちもBOM消す
+    const cleanedLine = line1.replace(/^\uFEFF/, '')
+    const result = /^diff --git/.test(cleanedLine)
 
     expect(result).toBeTruthy()
   })
