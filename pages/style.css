@@ -23,3 +23,51 @@ footer {
   color: white;
   height: 150px;
 }
+
+#menu {
+  width: 90vw;
+  margin: 0 5vw;
+}
+
+#menu > h2 {
+  text-align: center;
+  padding-top: 150px;
+  margin-bottom: 50px;
+}
+
+#drink {
+  width: 100%;
+  margin-bottom: 150px;
+}
+
+.item-list {
+  display: flex;
+  width: 100%;
+}
+
+.item-price {
+  text-align: right;
+}
+
+#drink > h3 {
+  width: 50vw;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+#drink-list > table {
+  width: 35%;
+  margin-right: 5%;
+  margin-left: 10%;
+}
+
+#drink-image {
+  height: 45vh;
+  width: 50%;
+  text-align: center;
+}
+
+#drink-image > img {
+  height: 100%;
+  border-radius: 50%;
+}
